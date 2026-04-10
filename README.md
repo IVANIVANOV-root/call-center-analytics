@@ -1,6 +1,5 @@
 # Call Center Analytics / Анализ звонков колл-центра
 
-**Live demo:** https://audioanalitika.ru
 
 A full-stack web application for automated call center quality analysis. Upload audio recordings, transcribe them with Whisper (faster-whisper), analyze with a local LLM (Ollama) or Sber GigaChat, cross-reference against a price list, and get a structured quality report per call.
 
