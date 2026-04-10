@@ -1,0 +1,24 @@
+services:
+  callcontrol:
+    build: .
+    container_name: callcontrol-zmgorka
+    restart: unless-stopped
+    ports:
+      - "3017:5000"
+    volumes:
+      - callcontrol_data:/app/data
+      - callcontrol_audio:/app/audio
+    environment:
+      - PORT=5000
+      - WHISPER_ASR_URL=http://192.168.28.47:8181/asr
+      - GIGACHAT_AUTH_KEY=${GIGACHAT_AUTH_KEY:-}
+      - GIGACHAT_SCOPE=GIGACHAT_API_PERS
+      - OLLAMA_BASE_URL=http://192.168.28.47:11434
+      - OLLAMA_MODEL=OxW/Vikhr-Nemo-12B-Instruct-R-21-09-24:q4_k_m
+      - SECRET_KEY=${SECRET_KEY:-callcontrol-zmgorka-secret-2024}
+      - AUDIO_DIR=/app/audio
+      - DATA_DIR=/app/data
+
+volumes:
+  callcontrol_data:
+  callcontrol_audio:
